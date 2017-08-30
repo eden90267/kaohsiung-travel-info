@@ -64,12 +64,12 @@ class Controller {
 
   };
 
-  _updateSelZone = () => {
-    view.updateSelZone(model.getZones());
+  _updateSelZone = async () => {
+    view.updateSelZone(await model.getZones());
   };
 
-  _updateView = () => {
-    let data = model.getData(this.offset, this.limit, this.zone);
+  _updateView = async () => {
+    let data = await model.getData(this.offset, this.limit, this.zone);
     this.total = data.total;
     view.updateView(this.zone, data.records);
   };
