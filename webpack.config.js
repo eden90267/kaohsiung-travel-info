@@ -29,6 +29,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     publicPath: DEV_MODE ? 'http://localhost:3000/' : '',
   },
+  devtool: "source-map",
   resolve: {
     modules: [
       path.resolve('src/img'),
@@ -51,10 +52,11 @@ module.exports = {
         test: /\.(sass|scss)$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: [{
-            loader: 'css-loader',
-            options: {sourceMap: true},
-          },
+          use: [
+            {
+              loader: 'css-loader',
+              options: {sourceMap: true},
+            },
             {
               loader: 'sass-loader',
               options: {sourceMap: true},
