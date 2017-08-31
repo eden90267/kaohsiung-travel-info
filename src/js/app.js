@@ -4,8 +4,6 @@ import 'app.sass';
 import 'jquery';
 import 'bootstrap-sass/assets/javascripts/bootstrap.min';
 
-import "../index.html";
-
 import controller from 'controller';
 
 controller.init();

@@ -11,7 +11,7 @@ class View {
 
   updateView = (zone = '所有區', data) => {
     // update zoneName
-    document.querySelector('.zone-name').textContent = zone;
+    document.querySelector('.zone-name').textContent = `${zone === '' ? '所有區' : zone}`;
 
     // update records
     this.updateRecords(data);

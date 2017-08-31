@@ -6,7 +6,7 @@ class Controller {
   constructor() {
     this.offset = 1;
     this.limit = 10;
-    this.zone = '';
+    this.zone;
     this.total = 0;
   }
 
@@ -19,7 +19,6 @@ class Controller {
   addDOMListeners = () => {
     // selZone
     document.querySelector('.sel-zone').addEventListener('change', e => {
-      if (e.target.value === '') return;
       this.zone = e.target.value;
       this.offset = 1;
       this._updateView();
