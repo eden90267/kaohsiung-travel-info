@@ -85,6 +85,41 @@ module.exports = {
             },
           },
         ],
+        include: /node_modules/,
+        exclude: path.resolve('src/img'),
+      },
+      {
+        test: /\.(png|jpg|gif|svg|ico)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 2048,
+              name: "[path][name].[ext]?[hash:10]",
+            },
+          },
+          {
+            loader: 'image-webpack-loader', // 慢，建議用gulp做壓K
+            options: {
+              gifsicle: {
+                interlaced: false,
+              },
+              optipng: {
+                optimizationLevel: 7,
+              },
+              pngquant: {
+                quality: '90-100',
+                speed: 4,
+              },
+              mozjpeg: {
+                progressive: true,
+                quality: 65,
+              },
+            },
+          },
+        ],
+        include: path.resolve('src/img'),
+        exclude: /node_modules/,
       },
     ]
   },
